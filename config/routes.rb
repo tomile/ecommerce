@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+
+  get 'view_order' => 'cart#view_order'
+  post 'add_to_cart' => 'cart#add_to_cart'
+  post 'checkout' => 'cart#checkout'
+
+
+  devise_for :users
   root 'storefront#all_items'
   get 'categorical' => 'storefront#items_by_category'
   get 'branding' => 'storefront#items_by_brand'
-  get 'all' => 'storefront#all_ items'
+  get 'all' => 'storefront#all_items'
 
   resources :products
 
