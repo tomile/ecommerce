@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
 	belongs_to :user
 
-	serialize :oder_items, Hash
+	serialize :order_item, Hash
 end

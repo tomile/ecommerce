@@ -1,2 +1,18 @@
-<h1>Cart#view_order</h1>
-<p>Find me in app/views/cart/view_order.html.erb</p>
+<h1>My Cart</h1>
+
+<div class="row">
+	<div class="col-md-12">
+		<% @line_items.each do |line_item| %>
+			<ul>
+				<li><%= line_item.product.name %></li>
+				<li><%= number_to_currency line_item.product.price %></li>
+				<li>Qty: <%= line_item.quantity %></li>
+				<li>SubTotal: <%= number_to_currency line_item.line_item_total %></li>
+			</ul>
+		<% end %>
+	</div>
+</div>
+
+<div>
+	<%= link_to "Proceed to Checkout?", checkout_path, method: :post, class: "btn btn-warning" %>
+</div>
